@@ -15,16 +15,19 @@ public class HangmanMain {
             game.currentWord();
             System.out.println("Введите букву, слово или команду для выхода:");
             String input = scanner.nextLine();
+
             if (input.equals("Exit") || input.equals("Выход")){
                 game.endGame();
             }
-            char letter = input.toLowerCase().charAt(0);
-            game.userAnswer(letter);
-            if (game.isGameWon()){
-                System.out.println("Поздравляю, Вы выиграли! Загаданное слово было: " + randomWord);
+
+            if (input.equals(randomWord) || game.isGameWon()){
+                System.out.println("\nПоздравляю, Вы выиграли! Загаданное слово было: " + randomWord);
                 break;
             }
-            }
+
+            char letter = input.toLowerCase().charAt(0);
+            game.userAnswer(letter);
+        }
         if (game.isGameOver()) {
             System.out.println("Вы проиграли, попробуйте ещё раз :(");
         }

@@ -6,7 +6,7 @@ public class Dictionary {
     private final List<String> words;
 
     public Dictionary() {
-        words = Arrays.asList("apple", "banana", "pear", "raspberry");
+        words = Arrays.asList("apple", "banana", "pear", "raspberry", "orange", "pineapple");
     }
     public String getRandomWord() {
         Random random = new Random();
