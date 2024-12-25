@@ -6,7 +6,7 @@ public class HangmanMain {
         Dictionary dictionary = new Dictionary();
         String randomWord = dictionary.getRandomWord();
 
-        Session game = new Session(randomWord, 6);
+        Session game = new Session(randomWord, 1 );
         game.startGame();
 
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class HangmanMain {
             }
 
             char letter = input.toLowerCase().charAt(0);
-            game.userAnswer(letter);
+            game.usedLetter(letter);
         }
         if (game.isGameOver()) {
             System.out.println("Вы проиграли, попробуйте ещё раз :(");

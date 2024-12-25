@@ -1,7 +1,7 @@
-public interface Interface {
+public interface GameConfig {
     void startGame();
     void endGame();
-    void userAnswer(char letter);
+    void usedLetter(char letter);
     void currentWord();
     boolean isGameWon();
     boolean isGameOver();

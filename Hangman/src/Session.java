@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Session implements Interface{
+public class Session implements GameConfig {
     private final String word;
     private final List<Character> guessedletters;
     private final int maxAttempts;
@@ -17,17 +17,17 @@ public class Session implements Interface{
         this.guessedletters = new ArrayList<>();
     }
 
-    public void startGame(){
+    public void startGame() {
         System.out.println("Слово состоит из " + word.length() + " букв.");
         System.out.println("У Вас есть " + maxAttempts + " попыток.");
     }
 
-    public void endGame(){
+    public void endGame() {
         System.out.println("\nВы завершили игру досрочно.");
         System.exit(0);
     }
 
-    public void userAnswer(char letter) {
+    public void usedLetter(char letter) {
         if (guessedletters.contains(letter)) {
             System.out.println("Вы уже вводили эту букву.\n");
             return;
@@ -39,16 +39,16 @@ public class Session implements Interface{
             System.out.println("Попадание! Буква \"" + letter + "\" есть в слове.\n");
             updateWord(letter);
         } else {
-        attempts--;
-        System.out.println("Мимо, буквы \"" + letter + "\" нет в слове.");
-        System.out.println("У Вас осталось попыток: " + attempts + "\n");
-    }
+            attempts--;
+            System.out.println("Мимо, буквы \"" + letter + "\" нет в слове.");
+            System.out.println("У Вас осталось попыток: " + attempts + "\n");
+        }
     }
 
-    private void updateWord(char letter){
+    private void updateWord(char letter) {
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == letter) {
-                currentWord.setCharAt(i,letter);
+                currentWord.setCharAt(i, letter);
             }
         }
     }
@@ -57,11 +57,11 @@ public class Session implements Interface{
         System.out.println("Текущее слово: " + currentWord);
     }
 
-    public boolean isGameWon(){
+    public boolean isGameWon() {
         return currentWord.toString().equals(word);
     }
 
-    public boolean isGameOver(){
+    public boolean isGameOver() {
         return attempts == 0;
     }
 }
